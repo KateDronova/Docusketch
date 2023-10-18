@@ -1,23 +1,54 @@
-import logo from './logo.svg';
 import './App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBell } from '@fortawesome/free-solid-svg-icons';
+import { faBolt } from '@fortawesome/free-solid-svg-icons';
+import { faBook } from '@fortawesome/free-solid-svg-icons';
+import { faBug } from '@fortawesome/free-solid-svg-icons';
+import { faCar } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faFile } from '@fortawesome/free-solid-svg-icons';
+import { faFish } from '@fortawesome/free-solid-svg-icons';
+import { faFire } from '@fortawesome/free-solid-svg-icons';
+import { faGhost } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import { faImage } from '@fortawesome/free-solid-svg-icons';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faSun } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
+  const icons = [
+    faBell,
+    faBolt,
+    faBook,
+    faBug,
+    faCar,
+    faEnvelope,
+    faFile,
+    faFish,
+    faFire,
+    faGhost,
+    faHeart,
+    faHouse,
+    faImage,
+    faStar,
+    faSun,
+  ];
+  let i = 0;
+  function showNewIcon() {
+    setTimeout(() => {
+      i = Math.floor(Math.random() * 15);
+    }, 3000);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="content">
+      <button type="button" onClick={showNewIcon}>
+        Click for new icon
+      </button>
+      <span>
+        <FontAwesomeIcon icon={icons[i]} />
+      </span>
     </div>
   );
 }
