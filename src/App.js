@@ -1,4 +1,5 @@
 import './App.css';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 import { faBolt } from '@fortawesome/free-solid-svg-icons';
@@ -34,10 +35,11 @@ function App() {
     faStar,
     faSun,
   ];
-  let i = 0;
+  const [index, setIndex] = useState(0);
+
   function showNewIcon() {
     setTimeout(() => {
-      i = Math.floor(Math.random() * 15);
+      setIndex(Math.floor(Math.random() * 15));
     }, 3000);
   }
 
@@ -47,7 +49,7 @@ function App() {
         Click for new icon
       </button>
       <span>
-        <FontAwesomeIcon icon={icons[i]} />
+        <FontAwesomeIcon icon={icons[index]} />
       </span>
     </div>
   );
